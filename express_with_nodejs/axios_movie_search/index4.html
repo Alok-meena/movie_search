@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search App</title>
+</head>
+<body>
+    <h1>Movie Search App</h1>
+    <input type="text" id="query" placeholder="Search a Movie">
+    <button onclick="searchMovie()">Search</button>
+    <div id="results"></div>
+
+    <script>
+        async function searchMovie(){
+            const searchText=document.getElementById("query").value;
+            try{
+                const response=await fetch(`search?query=${searchText}`);
+                const data=response.json();
+                const result=document.getElementById("results");
+                result.innerHTML="";
+
+                data.Search.forEach((movie)=>{
+                    const resultDiv=document.createElement("div");
+                    resultDiv.className="resultclass";
+                    resultDiv.innerHTML=`
+                       <h2>Title:${movie.Title}</h2>
+                       <p>MovieYear:${movie.Year}</p>
+                       <img src="${movie.Poster}">
+                    `;
+                    result.appendChild(resultDiv);
+                })
+            }
+                catch(err){
+                    console.log("unable to fetch data from the api:",err);
+                }
+            }
+        
+    </script>
+</body>
+</html>
