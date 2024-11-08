@@ -6,7 +6,7 @@ const port=3000;
 const apikey="471e8972";
 
 // app.use(express.json());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, ".")));
 
 app.use(express.urlencoded({ extended: true }));
 
