@@ -42,5 +42,5 @@ app.get("/search",async (req,res)=>{
 // fun();
 
 app.listen(port,()=>{
-    console.log("SERVER RUNNING AT http://localhost:3000");
+    console.log("SERVER RUNNING AT http://localhost:8080");
 });
