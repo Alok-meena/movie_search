@@ -2,7 +2,7 @@ const express=require("express");
 const app=express();
 const axios=require("axios");
 const path=require("path");
-const port=3000;
+const port=8080;
 const apikey="471e8972";
 
 // app.use(express.json());
