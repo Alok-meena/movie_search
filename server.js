@@ -2,7 +2,6 @@ const express=require("express");
 const app=express();
 const axios=require("axios");
 const path=require("path");
-const port=8080;
 const apikey="471e8972";
 
 // app.use(express.json());
@@ -41,6 +40,8 @@ app.get("/search",async (req,res)=>{
 // };
 // fun();
 
-app.listen(port,()=>{
-    console.log("SERVER RUNNING AT http://localhost:8080");
+const port = process.env.PORT || 8080; // Use the environment port provided by Azure, or fallback to 8080 locally
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
 });
+
