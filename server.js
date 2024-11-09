@@ -40,8 +40,9 @@ app.get("/search",async (req,res)=>{
 // };
 // fun();
 
-const port = process.env.PORT || 8080; // Use the environment port provided by Azure, or fallback to 8080 locally
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+const port = process.env.PORT || 8080;  // Fall back to 8080 if PORT is not set
+console.log(`Server running at http://0.0.0.0:${port}`);  // Log the port and listen on 0.0.0.0
+app.listen(port, '0.0.0.0', () => {  // Ensure it listens on all available network interfaces
+  console.log(`Server running at http://0.0.0.0:${port}`);
 });
 
