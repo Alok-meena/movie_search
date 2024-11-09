@@ -40,9 +40,12 @@ app.get("/search",async (req,res)=>{
 // };
 // fun();
 
-const port = process.env.PORT || 8080;  // Fall back to 8080 if PORT is not set
-console.log(`Server running at http://0.0.0.0:${port}`);  // Log the port and listen on 0.0.0.0
-app.listen(port, '0.0.0.0', () => {  // Ensure it listens on all available network interfaces
+const port = process.env.PORT || 8080;
+console.log(`Server is starting on port ${port}`);
+
+app.listen(port, '0.0.0.0', () => {
   console.log(`Server running at http://0.0.0.0:${port}`);
+}).on('error', (err) => {
+  console.error('Server failed to start:', err);
 });
 
